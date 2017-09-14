@@ -71,7 +71,6 @@ module "elb" {
     Owner       = "user"
     Environment = "dev"
   }
-
   // ELB attachments
   number_of_instances = "${var.number_of_instances}"
   instances           = ["${module.ec2_instances.id}"]
