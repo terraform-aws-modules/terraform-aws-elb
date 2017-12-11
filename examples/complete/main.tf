@@ -71,7 +71,8 @@ module "elb" {
     Owner       = "user"
     Environment = "dev"
   }
-  // ELB attachments
+
+  # ELB attachments
   number_of_instances = "${var.number_of_instances}"
   instances           = ["${module.ec2_instances.id}"]
 }
@@ -88,5 +89,6 @@ module "ec2_instances" {
   ami                         = "ami-ebd02392"
   instance_type               = "t2.micro"
   vpc_security_group_ids      = ["${data.aws_security_group.default.id}"]
+  subnet_id                   = "${element(data.aws_subnet_ids.all.ids, 0)}"
   associate_public_ip_address = true
 }
