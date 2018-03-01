@@ -4,6 +4,11 @@ output "this_elb_id" {
   value       = "${module.elb.this_elb_id}"
 }
 
+output "this_elb_arn" {
+  description = "The ARN of the ELB"
+  value       = "${module.elb.this_elb_arn}"
+}
+
 output "this_elb_name" {
   description = "The name of the ELB"
   value       = "${module.elb.this_elb_name}"
