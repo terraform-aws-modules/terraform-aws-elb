@@ -4,6 +4,11 @@ output "this_elb_id" {
   value       = "${aws_elb.this.id}"
 }
 
+output "this_elb_arn" {
+  description = "The ARN of the ELB"
+  value       = "${aws_elb.this.arn}"
+}
+
 output "this_elb_name" {
   description = "The name of the ELB"
   value       = "${aws_elb.this.name}"
