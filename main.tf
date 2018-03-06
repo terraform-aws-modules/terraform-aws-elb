@@ -28,7 +28,7 @@ module "elb" {
 module "elb_attachment" {
   source = "./modules/elb_attachment"
 
-  count = "${var.number_of_instances}"
+  number_of_instances = "${var.number_of_instances}"
 
   elb       = "${module.elb.this_elb_id}"
   instances = "${var.instances}"
