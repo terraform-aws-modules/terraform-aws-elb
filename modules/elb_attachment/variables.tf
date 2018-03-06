@@ -1,4 +1,4 @@
-variable "count" {
+variable "number_of_instances" {
   description = "Number of instances ID to place in the ELB pool"
 }
 

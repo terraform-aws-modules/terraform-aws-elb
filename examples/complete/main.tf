@@ -83,7 +83,7 @@ module "elb" {
 module "ec2_instances" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  count = "${var.number_of_instances}"
+  instance_count = "${var.number_of_instances}"
 
   name                        = "my-app"
   ami                         = "ami-ebd02392"
