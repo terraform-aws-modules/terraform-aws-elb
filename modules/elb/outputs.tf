@@ -1,4 +1,3 @@
-# ELB
 output "this_elb_id" {
   description = "The name of the ELB"
   value       = "${element(concat(aws_elb.this.*.id, list("")), 0)}"
