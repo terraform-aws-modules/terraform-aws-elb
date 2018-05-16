@@ -21,7 +21,7 @@ output "this_elb_dns_name" {
 
 output "this_elb_instances" {
   description = "The list of instances in the ELB"
-  value       = "${element(concat(aws_elb.this.*.instances, list()), 0)}"
+  value       = ["${element(concat(aws_elb.this.*.instances, list("")), 0)}"]
 }
 
 output "this_elb_source_security_group_id" {
