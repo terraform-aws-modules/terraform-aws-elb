@@ -41,20 +41,17 @@ variable "tags" {
   default     = {}
 }
 
-# Listener
 variable "listener" {
   description = "A list of listener blocks"
   type        = "list"
 }
 
-# Access logs
 variable "access_logs" {
   description = "An access logs block"
   type        = "list"
   default     = []
 }
 
-# Health check
 variable "health_check" {
   description = "A health check block"
   type        = "list"

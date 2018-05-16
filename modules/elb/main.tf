@@ -1,6 +1,3 @@
-######
-# ELB
-######
 resource "aws_elb" "this" {
   name            = "${var.name}"
   subnets         = ["${var.subnets}"]
