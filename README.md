@@ -12,11 +12,18 @@ Root module calls these modules which can also be used separately to create inde
 * [elb](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb) - creates ELB
 * [elb_attachment](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb_attachment) - creates ELB attachment
 
+## Terraform versions
+
+Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `master` branch.
+
+Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraform011` branch.
+
 ## Usage
 
 ```hcl
 module "elb_http" {
-  source = "terraform-aws-modules/elb/aws"
+  source  = "terraform-aws-modules/elb/aws"
+  version = "~> 2.0"
 
   name = "elb-example"
 
@@ -31,23 +38,26 @@ module "elb_http" {
       lb_port           = "80"
       lb_protocol       = "HTTP"
     },
-  ]
-
-  health_check = [
     {
-      target              = "HTTP:80/"
-      interval            = 30
-      healthy_threshold   = 2
-      unhealthy_threshold = 2
-      timeout             = 5
+      instance_port     = "8080"
+      instance_protocol = "http"
+      lb_port           = "8080"
+      lb_protocol       = "http"
+      ssl_certificate_id = "arn:aws:acm:eu-west-1:235367859451:certificate/6c270328-2cd5-4b2d-8dfd-ae8d0004ad31"
     },
   ]
 
-  access_logs = [
-    {
-      bucket = "my-access-logs-bucket"
-    },
-  ]
+  health_check = {
+    target              = "HTTP:80/"
+    interval            = 30
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 5
+  }
+
+  access_logs = {
+    bucket = "my-access-logs-bucket"
+  }
 
   // ELB attachments
   number_of_instances = 2
@@ -64,9 +74,9 @@ module "elb_http" {
 
 * [Complete ELB example](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/examples/complete)
 
-## Known Issues/Limitations
+## Note about SSL
 
-* Support for HTTPS is a common requirment for Internet facing ELBs. However, there is a known Terraform limitation with providing a dynamic computed value for the ```ssl_id_certificate``` parameter in nested block structures (Refer to: https://github.com/hashicorp/terraform/issues/16582#issuecomment-342570913).
+* Valid SSL certificate has to be specified as `ssl_id_certificate` argument for secure listener. Use [terraform-aws-acm module](https://github.com/terraform-aws-modules/terraform-aws-acm) to create one. See [ELB example](https://github.com/terraform-aws-modules/terraform-aws-elb/blob/master/examples/complete/main.tf) for details.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

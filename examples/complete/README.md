@@ -2,6 +2,8 @@
 
 Configuration in this directory creates ELB, EC2 instances and attach them together.
 
+This example also creates ACM SSL certificate which can be attached to a secure listener in ELB.
+
 Data sources are used to discover existing VPC resources (VPC, subnet and security group).
 
 ## Usage
