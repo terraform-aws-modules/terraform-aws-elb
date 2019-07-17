@@ -22,11 +22,14 @@ resource "aws_elb" "this" {
     }
   }
 
-  access_logs {
-    bucket        = lookup(var.access_logs, "bucket")
-    bucket_prefix = lookup(var.access_logs, "bucket_prefix", null)
-    interval      = lookup(var.access_logs, "interval", null)
-    enabled       = lookup(var.access_logs, "enabled", true)
+  dynamic "access_logs" {
+    for_each = var.access_logs
+    content {
+      bucket        = access_logs.value.bucket
+      bucket_prefix = lookup(access_logs.value, "bucket_prefix", null)
+      interval      = lookup(access_logs.value, "interval", null)
+      enabled       = lookup(access_logs.value, "enabled", true)
+    }
   }
 
   health_check {
