@@ -3,9 +3,16 @@
 
 
 
+<a name="v2.2.0"></a>
+## [v2.2.0] - 2019-08-21
+
+- Allow creation of ELB with and without access_logs (fixed [#21](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/21))
+
+
 <a name="v2.1.0"></a>
 ## [v2.1.0] - 2019-07-17
 
+- Updated CHANGELOG
 - Updated pre-commit and docs
 - Making access_logs field optional ([#20](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/20))
 
@@ -73,7 +80,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.2.0...HEAD
+[v2.2.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v1.4.1...v2.0.0
 [v1.4.1]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v1.4.0...v1.4.1
