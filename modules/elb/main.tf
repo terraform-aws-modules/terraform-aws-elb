@@ -23,7 +23,7 @@ resource "aws_elb" "this" {
   }
 
   dynamic "access_logs" {
-    for_each = var.access_logs
+    for_each = length(keys(var.access_logs)) == 0 ? [] : [var.access_logs]
     content {
       bucket        = access_logs.value.bucket
       bucket_prefix = lookup(access_logs.value, "bucket_prefix", null)

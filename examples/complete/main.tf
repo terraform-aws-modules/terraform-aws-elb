@@ -60,7 +60,8 @@ data "aws_iam_policy_document" "logs" {
 # ACM certificate
 ##################
 resource "aws_route53_zone" "this" {
-  name = "elbexample.com"
+  name          = "elbexample.com"
+  force_destroy = true
 }
 
 module "acm" {
@@ -114,7 +115,6 @@ module "elb" {
     unhealthy_threshold = 2
     timeout             = 5
   }
-
 
   access_logs = {
     bucket = aws_s3_bucket.logs.id
