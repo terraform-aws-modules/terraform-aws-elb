@@ -12,3 +12,9 @@ variable "instances" {
   description = "List of instances ID to place in the ELB pool"
   type        = list(string)
 }
+
+variable "create_attachment" {
+  description = "Create the elb attachment or not"
+  type        = bool
+  default     = true
+}

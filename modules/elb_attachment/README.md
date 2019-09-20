@@ -5,6 +5,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| create\_attachment | Create the elb attachment or not | bool | `"true"` | no |
 | elb | The name of the ELB | string | n/a | yes |
 | instances | List of instances ID to place in the ELB pool | list(string) | n/a | yes |
 | number\_of\_instances | Number of instances ID to place in the ELB pool | number | n/a | yes |

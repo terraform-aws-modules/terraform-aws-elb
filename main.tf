@@ -20,6 +20,8 @@ module "elb" {
   access_logs  = var.access_logs
   health_check = var.health_check
 
+  create_elb = var.create_elb
+
   tags = merge(
     var.tags,
     {
@@ -38,4 +40,6 @@ module "elb_attachment" {
 
   elb       = module.elb.this_elb_id
   instances = var.instances
+
+  create_attachment = var.create_elb
 }

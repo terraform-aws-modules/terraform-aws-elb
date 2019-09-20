@@ -8,6 +8,7 @@
 | access\_logs | An access logs block | map(string) | `{}` | no |
 | connection\_draining | Boolean to enable connection draining | bool | `"false"` | no |
 | connection\_draining\_timeout | The time in seconds to allow for connections to drain | number | `"300"` | no |
+| create\_elb | Create the elb or not | bool | `"true"` | no |
 | cross\_zone\_load\_balancing | Enable cross-zone load balancing | bool | `"true"` | no |
 | health\_check | A health check block | map(string) | n/a | yes |
 | idle\_timeout | The time in seconds that the connection is allowed to be idle | number | `"60"` | no |

@@ -46,4 +46,6 @@ resource "aws_elb" "this" {
       "Name" = format("%s", var.name)
     },
   )
+
+  count = var.create_elb ? 1 : 0
 }
