@@ -90,7 +90,7 @@ module "elb_http" {
 | health\_check | A health check block | map(string) | n/a | yes |
 | idle\_timeout | The time in seconds that the connection is allowed to be idle | number | `"60"` | no |
 | instances | List of instances ID to place in the ELB pool | list(string) | `[]` | no |
-| internal | If true, ELB will be an internal ELB | string | n/a | yes |
+| internal | If true, ELB will be an internal ELB | bool | `"false"` | no |
 | listener | A list of listener blocks | list(map(string)) | n/a | yes |
 | name | The name of the ELB | string | `"null"` | no |
 | name\_prefix | The prefix name of the ELB | string | `"null"` | no |
