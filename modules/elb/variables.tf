@@ -1,3 +1,9 @@
+variable "create_elb" {
+  description = "Create the elb or not"
+  type        = bool
+  default     = true
+}
+
 variable "name" {
   description = "The name of the ELB"
   type        = string
@@ -69,10 +75,4 @@ variable "access_logs" {
 variable "health_check" {
   description = "A health check block"
   type        = map(string)
-}
-
-variable "create_elb" {
-  description = "Create the elb or not"
-  type        = bool
-  default     = true
 }
