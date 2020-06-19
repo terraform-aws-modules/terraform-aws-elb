@@ -1,6 +1,17 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+
+<a name="v2.4.0"></a>
+## [v2.4.0] - 2020-06-19
+
+- feat: Added variable to enable/disable module ([#23](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/23))
+- Minor update of README.md - certificate id argument name ([#32](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/32))
 
 
 <a name="v2.3.0"></a>
@@ -12,14 +23,12 @@
 <a name="v2.2.0"></a>
 ## [v2.2.0] - 2019-08-21
 
-- Updated CHANGELOG
 - Allow creation of ELB with and without access_logs (fixed [#21](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/21))
 
 
 <a name="v2.1.0"></a>
 ## [v2.1.0] - 2019-07-17
 
-- Updated CHANGELOG
 - Updated pre-commit and docs
 - Making access_logs field optional ([#20](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/20))
 
@@ -27,7 +36,6 @@
 <a name="v2.0.0"></a>
 ## [v2.0.0] - 2019-06-09
 
-- Updated CHANGELOG
 - Updated module for Terraform 0.12 ([#17](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/17))
 
 
@@ -65,9 +73,7 @@
 <a name="v1.1.0"></a>
 ## [v1.1.0] - 2018-03-01
 
-- Merge pull request [#8](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/8) from dropped/arn_output
 - Add the ARN output
-- Merge pull request [#6](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/6) from horsey/master
 - - Fixed formatting
 - - Fixed formatting
 - - Added Known Issues/Limitations section
@@ -87,7 +93,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.3.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.4.0...HEAD
+[v2.4.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.0.0...v2.1.0
