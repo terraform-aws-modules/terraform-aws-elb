@@ -4,6 +4,8 @@
 module "elb" {
   source = "./modules/elb"
 
+  create_elb = var.create_elb
+
   name        = var.name
   name_prefix = var.name_prefix
 
@@ -33,6 +35,8 @@ module "elb" {
 #################
 module "elb_attachment" {
   source = "./modules/elb_attachment"
+
+  create_attachment = var.create_elb
 
   number_of_instances = var.number_of_instances
 

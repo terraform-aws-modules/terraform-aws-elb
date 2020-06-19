@@ -1,3 +1,9 @@
+variable "create_elb" {
+  description = "Create the elb or not"
+  type        = bool
+  default     = true
+}
+
 variable "name" {
   description = "The name of the ELB"
   type        = string
