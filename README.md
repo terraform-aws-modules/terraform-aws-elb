@@ -1,16 +1,16 @@
 # AWS Elastic Load Balancer (ELB) Terraform module
 
-Terraform module which creates ELB resources on AWS.
+Terraform module which creates Classic Load Balancer (also called ELB) resources on AWS.
 
 These types of resources are supported:
 
-* [ELB](https://www.terraform.io/docs/providers/aws/r/elb.html)
-* [ELB Attachment](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html)
+- [ELB](https://www.terraform.io/docs/providers/aws/r/elb.html)
+- [ELB Attachment](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html)
 
 Root module calls these modules which can also be used separately to create independent resources:
 
-* [elb](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb) - creates ELB
-* [elb_attachment](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb_attachment) - creates ELB attachment
+- [elb](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb) - creates ELB
+- [elb_attachment](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb_attachment) - creates ELB attachment
 
 ## Terraform versions
 
@@ -33,15 +33,15 @@ module "elb_http" {
 
   listener = [
     {
-      instance_port     = "80"
+      instance_port     = 80
       instance_protocol = "HTTP"
-      lb_port           = "80"
+      lb_port           = 80
       lb_protocol       = "HTTP"
     },
     {
-      instance_port     = "8080"
+      instance_port     = 8080
       instance_protocol = "http"
-      lb_port           = "8080"
+      lb_port           = 8080
       lb_protocol       = "http"
       ssl_certificate_id = "arn:aws:acm:eu-west-1:235367859451:certificate/6c270328-2cd5-4b2d-8dfd-ae8d0004ad31"
     },
@@ -62,7 +62,7 @@ module "elb_http" {
   // ELB attachments
   number_of_instances = 2
   instances           = ["i-06ff41a77dfb5349d", "i-4906ff41a77dfb53d"]
-  
+
   tags = {
     Owner       = "user"
     Environment = "dev"
@@ -72,20 +72,34 @@ module "elb_http" {
 
 ## Examples
 
-* [Complete ELB example](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/examples/complete)
+- [Complete ELB example](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/examples/complete)
 
 ## Note about SSL
 
-* Valid SSL certificate has to be specified as `ssl_certificate_id` argument for secure listener. Use [terraform-aws-acm module](https://github.com/terraform-aws-modules/terraform-aws-acm) to create one. See [ELB example](https://github.com/terraform-aws-modules/terraform-aws-elb/blob/master/examples/complete/main.tf) for details.
+- Valid SSL certificate has to be specified as `ssl_certificate_id` argument for secure listener. Use [terraform-aws-acm module](https://github.com/terraform-aws-modules/terraform-aws-acm) to create one. See [ELB example](https://github.com/terraform-aws-modules/terraform-aws-elb/blob/master/examples/complete/main.tf) for details.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12.26 |
+| aws | >= 2.20 |
 
 ## Providers
 
 No provider.
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| elb | ./modules/elb |  |
+| elb_attachment | ./modules/elb_attachment |  |
+
+## Resources
+
+No resources.
 
 ## Inputs
 
@@ -119,7 +133,6 @@ No provider.
 | this\_elb\_name | The name of the ELB |
 | this\_elb\_source\_security\_group\_id | The ID of the security group that you can use as part of your inbound rules for your load balancer's back-end application instances |
 | this\_elb\_zone\_id | The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record) |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Authors
