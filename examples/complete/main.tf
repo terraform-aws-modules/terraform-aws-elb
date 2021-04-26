@@ -2,11 +2,6 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-variable "number_of_instances" {
-  description = "Number of instances to create and attach to ELB"
-  default     = 1
-}
-
 resource "random_pet" "this" {
   length = 2
 }
@@ -66,7 +61,7 @@ resource "aws_route53_zone" "this" {
 
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
   zone_id = aws_route53_zone.this.zone_id
 
@@ -101,10 +96,10 @@ module "elb" {
       lb_port           = "8080"
       lb_protocol       = "http"
 
-      //      Note about SSL:
-      //      This line is commented out because ACM certificate has to be "Active" (validated and verified by AWS, but Route53 zone used in this example is not real).
-      //      To enable SSL in ELB: uncomment this line, set "wait_for_validation = true" in ACM module and make sure that instance_protocol and lb_protocol are https or ssl.
-      //      ssl_certificate_id = module.acm.this_acm_certificate_arn
+      #            Note about SSL:
+      #            This line is commented out because ACM certificate has to be "Active" (validated and verified by AWS, but Route53 zone used in this example is not real).
+      #            To enable SSL in ELB: uncomment this line, set "wait_for_validation = true" in ACM module and make sure that instance_protocol and lb_protocol are https or ssl.
+      #            ssl_certificate_id = module.acm.this_acm_certificate_arn
     },
   ]
 
