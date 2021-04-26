@@ -42,6 +42,6 @@ module "elb_attachment" {
 
   number_of_instances = var.number_of_instances
 
-  elb       = module.elb.this_elb_id
+  elb       = module.elb.elb_id
   instances = var.instances
 }
