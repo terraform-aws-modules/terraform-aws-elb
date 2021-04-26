@@ -14,7 +14,7 @@ Root module calls these modules which can also be used separately to create inde
 
 ## Terraform versions
 
-Terraform 0.12. Pin module version to `~> v2.0` or newer. Submit pull-requests to `master` branch.
+Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `master` branch.
 
 Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraform011` branch.
 
@@ -23,7 +23,7 @@ Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraf
 ```hcl
 module "elb_http" {
   source  = "terraform-aws-modules/elb/aws"
-  version = "~> 3.0"
+  version = "~> 2.0"
 
   name = "elb-example"
 
