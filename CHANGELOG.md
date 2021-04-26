@@ -7,6 +7,13 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v3.0.0"></a>
+## [v3.0.0] - 2021-04-26
+
+- feat: Shorten outputs (removing this_) ([#39](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/39))
+- chore: update documentation and pin `terraform_docs` version to avoid future changes ([#38](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/38))
+
+
 <a name="v2.5.0"></a>
 ## [v2.5.0] - 2021-03-15
 
@@ -19,6 +26,18 @@ All notable changes to this project will be documented in this file.
 
 - feat: Added variable to enable/disable module ([#23](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/23))
 - Minor update of README.md - certificate id argument name ([#32](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/32))
+- Merge pull request [#31](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/31) from terraform-aws-modules/terraform-provider-githubfile-1584635213365195000
+- [ci skip] Create ".chglog/CHANGELOG.tpl.md".
+- Merge pull request [#30](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/30) from terraform-aws-modules/terraform-provider-githubfile-1584536634639555000
+- Merge pull request [#29](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/29) from terraform-aws-modules/terraform-provider-githubfile-1584536634639568000
+- [ci skip] Create ".pre-commit-config.yaml".
+- [ci skip] Create ".gitignore".
+- Merge pull request [#28](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/28) from terraform-aws-modules/terraform-provider-githubfile-1584536595705590000
+- Merge pull request [#26](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/26) from terraform-aws-modules/terraform-provider-githubfile-1584536595707469000
+- Merge pull request [#25](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/25) from terraform-aws-modules/terraform-provider-githubfile-1584536595705588000
+- [ci skip] Create "Makefile".
+- [ci skip] Create "LICENSE".
+- [ci skip] Create ".editorconfig".
 
 
 <a name="v2.3.0"></a>
@@ -80,7 +99,9 @@ All notable changes to this project will be documented in this file.
 <a name="v1.1.0"></a>
 ## [v1.1.0] - 2018-03-01
 
+- Merge pull request [#8](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/8) from dropped/arn_output
 - Add the ARN output
+- Merge pull request [#6](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/6) from horsey/master
 - - Fixed formatting
 - - Fixed formatting
 - - Added Known Issues/Limitations section
@@ -100,7 +121,8 @@ All notable changes to this project will be documented in this file.
 - Initial commit
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.5.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v3.0.0...HEAD
+[v3.0.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.5.0...v3.0.0
 [v2.5.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.4.0...v2.5.0
 [v2.4.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v2.2.0...v2.3.0
