@@ -99,7 +99,7 @@ module "elb" {
       #            Note about SSL:
       #            This line is commented out because ACM certificate has to be "Active" (validated and verified by AWS, but Route53 zone used in this example is not real).
       #            To enable SSL in ELB: uncomment this line, set "wait_for_validation = true" in ACM module and make sure that instance_protocol and lb_protocol are https or ssl.
-      #            ssl_certificate_id = module.acm.this_acm_certificate_arn
+      #            ssl_certificate_id = module.acm.acm_certificate_arn
     },
   ]
 
