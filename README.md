@@ -2,22 +2,6 @@
 
 Terraform module which creates Classic Load Balancer (also called ELB) resources on AWS.
 
-These types of resources are supported:
-
-- [ELB](https://www.terraform.io/docs/providers/aws/r/elb.html)
-- [ELB Attachment](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html)
-
-Root module calls these modules which can also be used separately to create independent resources:
-
-- [elb](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb) - creates ELB
-- [elb_attachment](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/modules/elb_attachment) - creates ELB attachment
-
-## Terraform versions
-
-Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `master` branch.
-
-Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraform011` branch.
-
 ## Usage
 
 ```hcl
@@ -137,8 +121,8 @@ No resources.
 
 ## Authors
 
-Module managed by [Anton Babenko](https://github.com/antonbabenko).
+Module is maintained by [Anton Babenko](https://github.com/antonbabenko) with help from [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-elb/graphs/contributors).
 
 ## License
 
-Apache 2 Licensed. See LICENSE for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/LICENSE) for full details.
