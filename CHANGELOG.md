@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 <a name="unreleased"></a>
 ## [Unreleased]
 
-
+- Increased minimal version of the required aws provider to 3
 
 <a name="v3.0.0"></a>
 ## [v3.0.0] - 2021-04-26
