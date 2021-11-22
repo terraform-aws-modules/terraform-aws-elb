@@ -78,8 +78,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_elb"></a> [elb](#module\_elb) | ./modules/elb |  |
-| <a name="module_elb_attachment"></a> [elb\_attachment](#module\_elb\_attachment) | ./modules/elb_attachment |  |
+| <a name="module_elb"></a> [elb](#module\_elb) | ./modules/elb | n/a |
+| <a name="module_elb_attachment"></a> [elb\_attachment](#module\_elb\_attachment) | ./modules/elb_attachment | n/a |
 
 ## Resources
 

@@ -40,7 +40,7 @@ Note that this example may create resources which cost money. Run `terraform des
 |------|--------|---------|
 | <a name="module_acm"></a> [acm](#module\_acm) | terraform-aws-modules/acm/aws | ~> 3.0 |
 | <a name="module_ec2_instances"></a> [ec2\_instances](#module\_ec2\_instances) | terraform-aws-modules/ec2-instance/aws | ~> 2.0 |
-| <a name="module_elb"></a> [elb](#module\_elb) | ../../ |  |
+| <a name="module_elb"></a> [elb](#module\_elb) | ../../ | n/a |
 
 ## Resources
 
