@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+### [3.0.1](https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v3.0.0...v3.0.1) (2022-01-10)
+
+
+### Bug Fixes
+
+* update CI/CD process to enable auto-release workflow ([#43](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/43)) ([e0a616d](https://github.com/terraform-aws-modules/terraform-aws-elb/commit/e0a616d517fcd4d0e7b88380cc47d96c5e4b08c6))
+
 <a name="v3.0.0"></a>
 ## [v3.0.0] - 2021-04-26
 
