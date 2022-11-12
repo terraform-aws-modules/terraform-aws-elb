@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0](https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v3.0.1...v4.0.0) (2022-11-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update supported Terraform min version to v1.0+ and AWS provider to v4.0+ (#45)
+
+### Features
+
+* Update supported Terraform min version to v1.0+ and AWS provider to v4.0+ ([#45](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/45)) ([4702d67](https://github.com/terraform-aws-modules/terraform-aws-elb/commit/4702d67bb2a1748254e8cc2e0d73645a05b60845))
+
 ### [3.0.1](https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v3.0.0...v3.0.1) (2022-01-10)
 
 
