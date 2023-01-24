@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [4.0.1](https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v4.0.0...v4.0.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* Use a version for  to avoid GitHub API rate limiting on CI workflows ([#46](https://github.com/terraform-aws-modules/terraform-aws-elb/issues/46)) ([0501388](https://github.com/terraform-aws-modules/terraform-aws-elb/commit/0501388d753ad2cb8a2e698fef9ff84521e8dfc9))
+
 ## [4.0.0](https://github.com/terraform-aws-modules/terraform-aws-elb/compare/v3.0.1...v4.0.0) (2022-11-12)
 
 
