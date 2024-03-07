@@ -25,9 +25,7 @@ module "elb" {
 
   tags = merge(
     var.tags,
-    {
-      "Name" = format("%s", var.name)
-    },
+    { "Name" = var.name },
   )
 }
 

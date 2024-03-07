@@ -7,7 +7,6 @@ Terraform module which creates Classic Load Balancer (also called ELB) resources
 ```hcl
 module "elb_http" {
   source  = "terraform-aws-modules/elb/aws"
-  version = "~> 2.0"
 
   name = "elb-example"
 
@@ -60,7 +59,7 @@ module "elb_http" {
 
 ## Note about SSL
 
-- Valid SSL certificate has to be specified as `ssl_certificate_id` argument for secure listener. Use [terraform-aws-acm module](https://github.com/terraform-aws-modules/terraform-aws-acm) to create one. See [ELB example](https://github.com/terraform-aws-modules/terraform-aws-elb/blob/master/examples/complete/main.tf) for details.
+- Valid SSL certificate has to be specified as `ssl_certificate_id` argument for secure listener. Use [terraform-aws-acm module](https://github.com/terraform-aws-modules/terraform-aws-acm) to create one.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -68,7 +67,6 @@ module "elb_http" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0 |
 
 ## Providers
 

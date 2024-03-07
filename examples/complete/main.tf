@@ -1,86 +1,34 @@
 provider "aws" {
+  region = local.region
+}
+
+data "aws_availability_zones" "available" {}
+
+locals {
   region = "eu-west-1"
-}
+  name   = "ex-${basename(path.cwd)}"
 
-resource "random_pet" "this" {
-  length = 2
-}
+  vpc_cidr = "10.0.0.0/16"
+  azs      = slice(data.aws_availability_zones.available.names, 0, 3)
 
-##############################################################
-# Data sources to get VPC, subnets and security group details
-##############################################################
-data "aws_vpc" "default" {
-  default = true
-}
-
-data "aws_subnet_ids" "all" {
-  vpc_id = data.aws_vpc.default.id
-}
-
-data "aws_security_group" "default" {
-  vpc_id = data.aws_vpc.default.id
-  name   = "default"
-}
-
-#########################
-# S3 bucket for ELB logs
-#########################
-data "aws_elb_service_account" "this" {}
-
-resource "aws_s3_bucket" "logs" {
-  bucket        = "elb-logs-${random_pet.this.id}"
-  acl           = "private"
-  policy        = data.aws_iam_policy_document.logs.json
-  force_destroy = true
-}
-
-data "aws_iam_policy_document" "logs" {
-  statement {
-    actions = [
-      "s3:PutObject",
-    ]
-
-    principals {
-      type        = "AWS"
-      identifiers = [data.aws_elb_service_account.this.arn]
-    }
-
-    resources = [
-      "arn:aws:s3:::elb-logs-${random_pet.this.id}/*",
-    ]
+  tags = {
+    Name       = local.name
+    Example    = local.name
+    Repository = "https://github.com/terraform-aws-modules/terraform-aws-elb"
   }
 }
 
-##################
-# ACM certificate
-##################
-resource "aws_route53_zone" "this" {
-  name          = "elbexample.com"
-  force_destroy = true
-}
+##################################################################
+# Classic Load Balancer
+##################################################################
 
-module "acm" {
-  source  = "terraform-aws-modules/acm/aws"
-  version = "~> 3.0"
-
-  zone_id = aws_route53_zone.this.zone_id
-
-  domain_name               = "elbexample.com"
-  subject_alternative_names = ["*.elbexample.com"]
-
-  wait_for_validation = false
-}
-
-######
-# ELB
-######
 module "elb" {
   source = "../../"
 
-  name = "elb-example"
+  name = local.name
 
-  subnets         = data.aws_subnet_ids.all.ids
-  security_groups = [data.aws_security_group.default.id]
+  subnets         = module.vpc.public_subnets
+  security_groups = [module.vpc.default_security_group_id]
   internal        = false
 
   listener = [
@@ -95,11 +43,6 @@ module "elb" {
       instance_protocol = "http"
       lb_port           = "8080"
       lb_protocol       = "http"
-
-      #            Note about SSL:
-      #            This line is commented out because ACM certificate has to be "Active" (validated and verified by AWS, but Route53 zone used in this example is not real).
-      #            To enable SSL in ELB: uncomment this line, set "wait_for_validation = true" in ACM module and make sure that instance_protocol and lb_protocol are https or ssl.
-      #            ssl_certificate_id = module.acm.acm_certificate_arn
     },
   ]
 
@@ -112,7 +55,7 @@ module "elb" {
   }
 
   access_logs = {
-    bucket = aws_s3_bucket.logs.id
+    bucket = module.log_bucket.s3_bucket_id
   }
 
   tags = {
@@ -121,23 +64,58 @@ module "elb" {
   }
 
   # ELB attachments
-  number_of_instances = var.number_of_instances
-  instances           = module.ec2_instances.id
+  number_of_instances = 1
+  instances           = [module.ec2_instance.id]
 }
 
-################
-# EC2 instances
-################
-module "ec2_instances" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 2.0"
+################################################################################
+# Supporting resources
+################################################################################
 
-  instance_count = var.number_of_instances
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "~> 5.0"
 
-  name                        = "my-app"
-  ami                         = "ami-ebd02392"
-  instance_type               = "t2.micro"
-  vpc_security_group_ids      = [data.aws_security_group.default.id]
-  subnet_id                   = element(tolist(data.aws_subnet_ids.all.ids), 0)
-  associate_public_ip_address = true
+  name = local.name
+  cidr = local.vpc_cidr
+
+  azs             = local.azs
+  private_subnets = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 4, k)]
+  public_subnets  = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 8, k + 48)]
+
+  tags = local.tags
+}
+
+module "ec2_instance" {
+  source = "terraform-aws-modules/ec2-instance/aws"
+
+  name = local.name
+
+  instance_type          = "t3.micro"
+  vpc_security_group_ids = [module.vpc.default_security_group_id]
+  subnet_id              = element(module.vpc.private_subnets, 0)
+
+  tags = local.tags
+}
+
+module "log_bucket" {
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "~> 3.0"
+
+  bucket_prefix = "${local.name}-logs-"
+  acl           = "log-delivery-write"
+
+  # For example only
+  force_destroy = true
+
+  control_object_ownership = true
+  object_ownership         = "ObjectWriter"
+
+  attach_elb_log_delivery_policy = true
+  attach_lb_log_delivery_policy  = true
+
+  attach_deny_insecure_transport_policy = true
+  attach_require_latest_tls_policy      = true
+
+  tags = local.tags
 }
