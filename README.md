@@ -61,7 +61,7 @@ module "elb_http" {
 
 - Valid SSL certificate has to be specified as `ssl_certificate_id` argument for secure listener. Use [terraform-aws-acm module](https://github.com/terraform-aws-modules/terraform-aws-acm) to create one.
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -115,7 +115,7 @@ No resources.
 | <a name="output_elb_name"></a> [elb\_name](#output\_elb\_name) | The name of the ELB |
 | <a name="output_elb_source_security_group_id"></a> [elb\_source\_security\_group\_id](#output\_elb\_source\_security\_group\_id) | The ID of the security group that you can use as part of your inbound rules for your load balancer's back-end application instances |
 | <a name="output_elb_zone_id"></a> [elb\_zone\_id](#output\_elb\_zone\_id) | The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record) |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
 
 ## Authors
 
