@@ -65,7 +65,7 @@ module "elb_http" {
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 
 ## Providers
@@ -75,7 +75,7 @@ No providers.
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_elb"></a> [elb](#module\_elb) | ./modules/elb | n/a |
 | <a name="module_elb_attachment"></a> [elb\_attachment](#module\_elb\_attachment) | ./modules/elb_attachment | n/a |
 
@@ -86,7 +86,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_access_logs"></a> [access\_logs](#input\_access\_logs) | An access logs block | `map(string)` | `{}` | no |
 | <a name="input_connection_draining"></a> [connection\_draining](#input\_connection\_draining) | Boolean to enable connection draining | `bool` | `false` | no |
 | <a name="input_connection_draining_timeout"></a> [connection\_draining\_timeout](#input\_connection\_draining\_timeout) | The time in seconds to allow for connections to drain | `number` | `300` | no |
@@ -107,7 +107,7 @@ No resources.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_elb_arn"></a> [elb\_arn](#output\_elb\_arn) | The ARN of the ELB |
 | <a name="output_elb_dns_name"></a> [elb\_dns\_name](#output\_elb\_dns\_name) | The DNS name of the ELB |
 | <a name="output_elb_id"></a> [elb\_id](#output\_elb\_id) | The name of the ELB |
